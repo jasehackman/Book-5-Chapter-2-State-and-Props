@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import EmployeeList from "./employee/employeeList"
 import LocationList from "./location/locationList"
+import AnimalList from "./animals/animalList"
 import "./kennel.css"
 
 
@@ -19,9 +20,17 @@ class Kennel extends Component {
         { id: 2, name: "Nashville South", address: "10101 Binary Court" }
     ]
 
+    animalsFromAPI = [
+      { id: 1, name: "Bob", type: "cat" },
+      { id: 2, name: "Mike", type: "dog" },
+      { id: 3, name: "Steve", type: "rat" },
+      { id: 4, name: "Jim", type: "cow" }
+  ]
+
     state = {
         employees: this.employeesFromAPI,
-        locations: this.locationsFromAPI
+        locations: this.locationsFromAPI,
+        animals: this.animalsFromAPI
     }
 
     render() {
@@ -29,6 +38,7 @@ class Kennel extends Component {
             <article className="kennel">
                 <LocationList locations={this.state.locations} />
                 <EmployeeList employees={this.state.employees} />
+                <AnimalList animals = {this.state.animals} />
             </article>
         )
     }
